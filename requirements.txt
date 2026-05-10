@@ -1,0 +1,6 @@
+
+pycryptodome
+PyYAML
+requests
+chardet
+beautifulsoup4

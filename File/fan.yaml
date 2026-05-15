@@ -16,4 +16,4 @@ proxies:
   - {'name': '🇰🇷 韩国·01', 'type': 'http', 'server': 'fan.572609.xyz', 'port': 443, 'tls': True, 'skip-cert-verify': True}
   - {'name': '🇨🇳 台湾·Hinet（原生·解锁）', 'type': 'http', 'server': 'fan.764969.xyz', 'port': 443, 'tls': True, 'skip-cert-verify': True}
   - {'name': '🇩🇪 德国·01', 'type': 'http', 'server': 'fan.973511.xyz', 'port': 443, 'tls': True, 'skip-cert-verify': True}
-  - {'name': '🇫🇷 法国·01', 'type': 'http', 'server': 'fan.132031.xyz', 'port': 443, 'tls': True, 'skip-cert-verify': True}
+  - {'name': '🇫🇷 法国·01', 'type': 'http', 'server': 'fan.132031.xyz', 'port': 443, 'tls': True, 'skip-cert-verify': True}  

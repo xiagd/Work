@@ -67,12 +67,12 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       interval: 1800  #30分钟
       timeout: 3000  #xxx ms
-      lazy: true 
+      lazy: false #true 
 
-  FanVPN:
+  Fan:
     type: http 
     url:  https://cdn.jsdelivr.net/gh/xiagd/Work@main/File/fan.yaml
-    path: ./FanVPN.yaml
+    path: ./Fan.yaml
     #更新间隔单位是秒
     interval: 3600 # 1小时更新
     #是否用代理更新
@@ -85,31 +85,8 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       interval: 1800  #30分钟
       timeout: 3000  #xxx ms
-      lazy: true
+      lazy: false #true
 
- 
-  
-#自建节点配置位置
-#proxies:
-#- name: "ss1"
-#  type: ss
-#  server: server
-#  port: 端口
-#  cipher: aes-128-gcm
-#  udp: true
-#  password: "密码"
-
-# 定义统一的节点提供者变量 (使用锚点)
-#x-quick-providers: &quick-providers
-#    - Quick11
-   
-#x-go-providers: &go-providers
-#    - Go11
-
-#x-qg-providers: &qg-providers
-#    - Quick11
-#    - Go11
-    
 
 proxy-groups:
 - name: 节点选择
@@ -117,14 +94,17 @@ proxy-groups:
   proxies:
   - 自动选择
   - 自动选择_Go
-  - 自动选择_FanVPN
+  - 自动选择_Fan
+  - 自动回退
+  - 自动回退_Go
+  - 自动回退_Fan
   - 手动选择
   - 手动选择_Go
-  - 手动选择_FanVPN
+  - 手动选择_Fan
   - 负载均衡
   - 负载均衡_Go
-  - 负载均衡_FanVPN
-  #- DIRECT
+  - 负载均衡_Fan
+  - DIRECT
  
 
  #=======================================
@@ -145,11 +125,13 @@ proxy-groups:
      max-failed-times: 3             # 连续失败3次标记节点不可用
      lazy: true             # true :检测当前被策略组使用的节点,  false:检测所有节点
   proxies:
+    #- 自动选择_Go
+    #- 自动选择_FanVPN
   #- ss1自建节点
   #- vm+ws自建节点
   use:
     - Go
-    - FanVPN
+    - Fan
   
  #=======================================
 - name: 自动选择_Go
@@ -175,7 +157,7 @@ proxy-groups:
     - Go  
     
  #=======================================
-- name: 自动选择_FanVPN
+- name: 自动选择_Fan
   type: url-test 
   url: http://www.gstatic.com/generate_204
   interval: 300   #秒
@@ -195,7 +177,78 @@ proxy-groups:
   #- ss1自建节点
   #- vm+ws自建节点
   use:
-    - FanVPN
+    - Fan
+
+
+  #=======================================
+- name: 自动回退
+  type: fallback
+  url: http://www.gstatic.com/generate_204
+  interval: 300   #秒
+  tolerance: 100    #控制切换灵敏度ms
+  timeout:  2000 
+  lazy: true 
+  health-check:
+     enable: true
+     url: http://www.gstatic.com/generate_204
+     interval: 120          # x秒检查高优先级组是否恢复
+     tolerance: 100
+     timeout:  2000   # 超时x秒视为不可用
+     #expected-status: 204
+     max-failed-times: 3             # 连续失败3次标记节点不可用
+     lazy: true             # true :检测当前被策略组使用的节点,  false:检测所有节点
+  proxies:
+  #- ss1自建节点
+  #- vm+ws自建节点
+  use:
+    - Go
+    - Fan
+  
+ #=======================================
+- name: 自动回退_Go
+  type: fallback 
+  url: http://www.gstatic.com/generate_204
+  interval: 300   #秒
+  tolerance: 100    #控制切换灵敏度ms
+  timeout:  2000 
+  lazy: true 
+  health-check:
+     enable: true
+     url: http://www.gstatic.com/generate_204
+     interval: 120          # x秒检查高优先级组是否恢复
+     tolerance: 100
+     timeout:  2000   # 超时x秒视为不可用
+     #expected-status: 204
+     max-failed-times: 3             # 连续失败3次标记节点不可用
+     lazy: true             # true :检测当前被策略组使用的节点,  false:检测所有节点
+  proxies:
+  #- ss1自建节点
+  #- vm+ws自建节点
+  use:
+    - Go  
+    
+ #=======================================
+- name: 自动回退_Fan
+  type: fallback 
+  url: http://www.gstatic.com/generate_204
+  interval: 300   #秒
+  tolerance: 100    #控制切换灵敏度ms
+  timeout:  2000 
+  lazy: true 
+  health-check:
+     enable: true
+     url: http://www.gstatic.com/generate_204
+     interval: 120          # x秒检查高优先级组是否恢复
+     tolerance: 100
+     timeout:  2000   # 超时x秒视为不可用
+     #expected-status: 204
+     max-failed-times: 3             # 连续失败3次标记节点不可用
+     lazy: true             # true :检测当前被策略组使用的节点,  false:检测所有节点
+  proxies:
+  #- ss1自建节点
+  #- vm+ws自建节点
+  use:
+    - Fan
  
  #=======================================
 - name: 负载均衡
@@ -220,7 +273,7 @@ proxy-groups:
   #- vm+ws自建节点
   use:
     - Go
-    - FanVPN
+    - Fan
     
     
  #=======================================
@@ -249,7 +302,7 @@ proxy-groups:
 
 
  #=======================================
-- name: 负载均衡_FanVPN
+- name: 负载均衡_Fan
   type: load-balance             # 必须指定类型
   url: https://www.gstatic.com/generate_204  # 节点测试地址
   interval: 300                  # 节点延迟测试间隔（单位：秒）
@@ -270,7 +323,7 @@ proxy-groups:
   #- ss1自建节点
   #- vm+ws自建节点
   use:
-    - FanVPN    
+    - Fan
 
 
 
@@ -294,7 +347,7 @@ proxy-groups:
   #- vm+ws自建节点
   use: 
     - Go
-    - FanVPN
+    - Fan
     
 #=======================================  
 - name: 手动选择_Go
@@ -318,7 +371,7 @@ proxy-groups:
     - Go
 
 #=======================================  
-- name: 手动选择_FanVPN
+- name: 手动选择_Fan
   type: select
   url: http://www.gstatic.com/generate_204
   interval: 300
@@ -336,7 +389,7 @@ proxy-groups:
   #- ss1自建节点
   #- vm+ws自建节点
   use: 
-    - FanVPN    
+    - Fan
 
   
 rule-providers:
@@ -431,7 +484,7 @@ rule-providers:
     path: ./ruleset/applications.yaml
     interval: 86400
 rules:
-  - DOMAIN-KEYWORD,zaobao,DIRECT #联合早报
+  - DOMAIN-KEYWORD,zaobao,DIRECT 
   - RULE-SET,applications,DIRECT
   - DOMAIN,clash.razord.top,DIRECT
   - DOMAIN,yacd.haishan.me,DIRECT

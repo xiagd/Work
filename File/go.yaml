@@ -146,19 +146,6 @@ proxies:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
-- name: 🇩🇪德国8
-  server: 5.178.101.117
-  port: 30006
-  type: tuic
-  uuid: 36106e0f-4d9a-470b-a3fd-535f3b7a1e92
-  password: dongtaiwang.com
-  sni: www.microsoft.com
-  alpn:
-  - h3
-  request-timeout: 8000
-  udp-relay-mode: native
-  skip-cert-verify: true
-  congestion-controller: bbr
 - name: 🇫🇷法国1
   server: 62.210.24.143
   port: 33888

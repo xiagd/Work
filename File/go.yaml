@@ -1,5 +1,5 @@
 proxies:
-- name: 🇬🇧英国1
+- name: 🇺🇸美国1
   type: anytls
   server: 156.225.88.93
   port: 23778
@@ -13,7 +13,7 @@ proxies:
   - h2
   - http/1.1
   skip-cert-verify: true
-- name: 🇬🇧英国2
+- name: 🇺🇸美国2
   type: anytls
   server: 156.225.88.93
   port: 23778

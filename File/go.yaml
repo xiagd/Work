@@ -1,32 +1,16 @@
 proxies:
 - name: 🇺🇸美国1
   type: anytls
-  server: 156.225.88.93
-  port: 23778
-  password: dongtaiwang.com
-  client-fingerprint: chrome
-  udp: true
-  idle-session-check-interval: 30
-  idle-session-timeout: 30
-  min-idle-session: 0
-  alpn:
-  - h2
-  - http/1.1
-  skip-cert-verify: true
+  server: anytls.864106.xyz
+  port: 18001
+  password: fanvpn.net
+  sni: anytls.864106.xyz
 - name: 🇺🇸美国2
   type: anytls
-  server: 156.225.88.93
-  port: 23778
-  password: dongtaiwang.com
-  client-fingerprint: chrome
-  udp: true
-  idle-session-check-interval: 30
-  idle-session-timeout: 30
-  min-idle-session: 0
-  alpn:
-  - h2
-  - http/1.1
-  skip-cert-verify: true
+  server: anytls.864106.xyz
+  port: 18001
+  password: fanvpn.net
+  sni: anytls.864106.xyz
 - name: 🇺🇸美国3
   type: hysteria2
   server: hy2.561891.xyz

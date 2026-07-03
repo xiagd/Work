@@ -136,21 +136,27 @@ proxies:
   - http/1.1
   skip-cert-verify: true
 - name: 🇫🇷法国1
-  type: hysteria2
-  server: clash-ip1.934618.xyz
-  port: 18271
-  password: github.com/Alvin9999-newpac/fanqiang
-  sni: clash-ip1.934618.xyz
-  skip-cert-verify: false
+  type: hysteria
+  server: 62.210.70.191
+  port: 23556
+  auth-str: github.com/Alvin9999-newpac/fanqiang
+  sni: bing.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  protocol: udp
   up: 11 Mbps
   down: 55 Mbps
 - name: 🇫🇷法国2
-  type: hysteria2
-  server: clash-ip1.934618.xyz
-  port: 18271
-  password: github.com/Alvin9999-newpac/fanqiang
-  sni: clash-ip1.934618.xyz
-  skip-cert-verify: false
+  type: hysteria
+  server: 62.210.70.191
+  port: 23556
+  auth-str: github.com/Alvin9999-newpac/fanqiang
+  sni: bing.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  protocol: udp
   up: 11 Mbps
   down: 55 Mbps
 - name: 🇫🇷法国3

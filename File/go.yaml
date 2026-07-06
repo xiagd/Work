@@ -29,6 +29,34 @@ proxies:
   down: 55 Mbps
   skip-cert-verify: false
   sni: hy2.561891.xyz
+- name: 🇺🇸美国5
+  type: anytls
+  server: 198.200.57.154
+  port: 22556
+  password: github.com/Alvin9999-newpac/fanqiang
+  udp: true
+  idle-session-check-interval: 30
+  idle-session-timeout: 30
+  min-idle-session: 5
+  sni: bing.com
+  alpn:
+  - h2
+  - http/1.1
+  skip-cert-verify: true
+- name: 🇺🇸美国6
+  type: anytls
+  server: 198.200.57.154
+  port: 22556
+  password: github.com/Alvin9999-newpac/fanqiang
+  udp: true
+  idle-session-check-interval: 30
+  idle-session-timeout: 30
+  min-idle-session: 5
+  sni: bing.com
+  alpn:
+  - h2
+  - http/1.1
+  skip-cert-verify: true
 - name: 🇩🇪德国1
   server: 83.243.86.109
   port: 27947
@@ -49,58 +77,6 @@ proxies:
   uuid: 261d95d4-73c0-4c33-957a-04b6d407bea2
   password: 261d95d4-73c0-4c33-957a-04b6d407bea2
   sni: bing.com
-  alpn:
-  - h3
-  request-timeout: 8000
-  udp-relay-mode: native
-  skip-cert-verify: true
-  congestion-controller: bbr
-- name: 🇩🇪德国3
-  server: 5.178.101.117
-  port: 30006
-  type: tuic
-  uuid: 36106e0f-4d9a-470b-a3fd-535f3b7a1e92
-  password: dongtaiwang.com
-  sni: www.microsoft.com
-  alpn:
-  - h3
-  request-timeout: 8000
-  udp-relay-mode: native
-  skip-cert-verify: true
-  congestion-controller: bbr
-- name: 🇩🇪德国4
-  server: 5.178.101.117
-  port: 30006
-  type: tuic
-  uuid: 36106e0f-4d9a-470b-a3fd-535f3b7a1e92
-  password: dongtaiwang.com
-  sni: www.microsoft.com
-  alpn:
-  - h3
-  request-timeout: 8000
-  udp-relay-mode: native
-  skip-cert-verify: true
-  congestion-controller: bbr
-- name: 🇩🇪德国5
-  server: 5.178.101.117
-  port: 30006
-  type: tuic
-  uuid: 36106e0f-4d9a-470b-a3fd-535f3b7a1e92
-  password: dongtaiwang.com
-  sni: www.microsoft.com
-  alpn:
-  - h3
-  request-timeout: 8000
-  udp-relay-mode: native
-  skip-cert-verify: true
-  congestion-controller: bbr
-- name: 🇩🇪德国6
-  server: 5.178.101.117
-  port: 30006
-  type: tuic
-  uuid: 36106e0f-4d9a-470b-a3fd-535f3b7a1e92
-  password: dongtaiwang.com
-  sni: www.microsoft.com
   alpn:
   - h3
   request-timeout: 8000
@@ -137,9 +113,9 @@ proxies:
   skip-cert-verify: true
 - name: 🇫🇷法国1
   type: hysteria
-  server: 62.210.70.191
-  port: 23556
-  auth-str: github.com/Alvin9999-newpac/fanqiang
+  server: 163.172.117.163
+  port: 36699
+  auth-str: dongtaiwang.com
   sni: bing.com
   skip-cert-verify: true
   alpn:
@@ -149,6 +125,18 @@ proxies:
   down: 55 Mbps
 - name: 🇫🇷法国2
   type: hysteria
+  server: 163.172.117.163
+  port: 36699
+  auth-str: dongtaiwang.com
+  sni: bing.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  protocol: udp
+  up: 11 Mbps
+  down: 55 Mbps
+- name: 🇫🇷法国3
+  type: hysteria
   server: 62.210.70.191
   port: 23556
   auth-str: github.com/Alvin9999-newpac/fanqiang
@@ -159,11 +147,11 @@ proxies:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: 🇫🇷法国3
+- name: 🇫🇷法国4
   type: hysteria
-  server: 163.172.117.163
-  port: 36699
-  auth-str: dongtaiwang.com
+  server: 62.210.70.191
+  port: 23556
+  auth-str: github.com/Alvin9999-newpac/fanqiang
   sni: bing.com
   skip-cert-verify: true
   alpn:
@@ -171,11 +159,23 @@ proxies:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: 🇫🇷法国4
+- name: 🇫🇷法国5
   type: hysteria
-  server: 163.172.117.163
-  port: 36699
-  auth-str: dongtaiwang.com
+  server: 62.210.70.191
+  port: 23556
+  auth-str: github.com/Alvin9999-newpac/fanqiang
+  sni: bing.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  protocol: udp
+  up: 11 Mbps
+  down: 55 Mbps
+- name: 🇫🇷法国6
+  type: hysteria
+  server: 62.210.70.191
+  port: 23556
+  auth-str: github.com/Alvin9999-newpac/fanqiang
   sni: bing.com
   skip-cert-verify: true
   alpn:

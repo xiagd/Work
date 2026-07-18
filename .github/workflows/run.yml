@@ -38,5 +38,5 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add File/fan.yaml File/go.yaml
+          git add File/fan.yaml File/go.yaml File/fana.yaml
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update configs" && git push)

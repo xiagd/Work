@@ -1,0 +1,43 @@
+proxies:
+- name: 🇺🇸美国1
+  type: vless
+  server: 137.175.82.40
+  port: 30556
+  uuid: 949d278e-6d98-4014-84e9-59f1c6c93e0e
+  network: tcp
+  tls: true
+  udp: true
+  flow: xtls-rprx-vision
+  servername: www.lovelive-anime.jp
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: EcmNQqZxyW4GCEQF-7nH54w3qgBkLzsfqFSgafGjB0E
+    short-id: d082f567
+- name: 🇺🇸美国2
+  type: anytls
+  server: anytls.864106.xyz
+  port: 18001
+  password: fanvpn.net
+  sni: anytls.864106.xyz
+- name: 🇺🇸美国3
+  type: mieru
+  server: 137.175.82.40
+  port: 28899
+  transport: TCP
+  username: fanvpn.net
+  password: fanvpn.net
+  multiplexing: MULTIPLEXING_LOW
+- name: 🇫🇷法国1
+  type: anytls
+  server: 62.210.7.249
+  port: 11780
+  password: fanvpn.net
+  udp: true
+  idle-session-check-interval: 30
+  idle-session-timeout: 30
+  min-idle-session: 5
+  sni: bing.com
+  alpn:
+  - h2
+  - http/1.1
+  skip-cert-verify: true

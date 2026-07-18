@@ -30,6 +30,9 @@ jobs:
 
       - name: Run fan.py
         run: python fan.py
+
+      - name: Run fana.py
+        run: python fana.py   
         
       - name: Push Changes
         run: |

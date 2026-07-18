@@ -484,7 +484,16 @@ rule-providers:
     path: ./ruleset/applications.yaml
     interval: 86400
 rules:
-  - DOMAIN-KEYWORD,zaobao,DIRECT 
+  - DOMAIN-KEYWORD,zaobao,DIRECT
+  - DOMAIN-SUFFIX,qq.com,DIRECT
+  - DOMAIN-SUFFIX,weixin.qq.com,DIRECT
+  - DOMAIN-SUFFIX,wechat.com,DIRECT
+  - DOMAIN-SUFFIX,tencent.com,DIRECT
+  - DOMAIN-SUFFIX,url.cn,DIRECT         
+  - DOMAIN-SUFFIX,gtimg.com,DIRECT     
+  - DOMAIN-SUFFIX,qpic.cn,DIRECT        
+  - DOMAIN-SUFFIX,myqcloud.com,DIRECT
+  
   - RULE-SET,applications,DIRECT
   - DOMAIN,clash.razord.top,DIRECT
   - DOMAIN,yacd.haishan.me,DIRECT

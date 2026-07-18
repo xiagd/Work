@@ -87,6 +87,24 @@ proxy-providers:
       timeout: 3000  #xxx ms
       lazy: false #true
 
+  FanA:
+    type: http 
+    url:  https://cdn.jsdelivr.net/gh/xiagd/Work@main/File/fana.yaml
+    path: ./FanA.yaml
+    #更新间隔单位是秒
+    interval: 3600 # 1小时更新
+    #是否用代理更新
+    proxy: DIRECT
+    # 节点名称前缀 p1
+    override: 
+      additional-prefix: "FA |"
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 1800  #30分钟
+      timeout: 3000  #xxx ms
+      lazy: false #true      
+
 
 proxy-groups:
 - name: 节点选择
@@ -132,6 +150,7 @@ proxy-groups:
   use:
     - Go
     - Fan
+    - FanA
   
  #=======================================
 - name: 自动选择_Go
@@ -178,6 +197,7 @@ proxy-groups:
   #- vm+ws自建节点
   use:
     - Fan
+    - FanA
 
 
   #=======================================
@@ -203,6 +223,7 @@ proxy-groups:
   use:
     - Go
     - Fan
+    - FanA
   
  #=======================================
 - name: 自动回退_Go
@@ -249,6 +270,7 @@ proxy-groups:
   #- vm+ws自建节点
   use:
     - Fan
+    - FanA
  
  #=======================================
 - name: 负载均衡
@@ -274,6 +296,7 @@ proxy-groups:
   use:
     - Go
     - Fan
+    - FanA
     
     
  #=======================================
@@ -324,6 +347,7 @@ proxy-groups:
   #- vm+ws自建节点
   use:
     - Fan
+    - FanA
 
 
 
@@ -348,6 +372,7 @@ proxy-groups:
   use: 
     - Go
     - Fan
+    - FanA
     
 #=======================================  
 - name: 手动选择_Go
@@ -390,6 +415,7 @@ proxy-groups:
   #- vm+ws自建节点
   use: 
     - Fan
+    - FanA
 
   
 rule-providers:

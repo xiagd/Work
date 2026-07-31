@@ -1,7 +1,6 @@
 proxies:
   - {'name': '🇺🇸 美国·01', 'type': 'http', 'server': 'fan.365747.xyz', 'port': 443, 'tls': True, 'skip-cert-verify': True}
-  - {'name': '🇺🇸 美国·洛杉矶01(三网优化)', 'type': 'http', 'server': 'fan.891058.xyz', 'port': 443, 'tls': True, 'skip-cert-verify': True}
-  - {'name': '🇺🇸 美国·洛杉矶02(三网优化)', 'type': 'http', 'server': 'fan.596189.xyz', 'port': 443, 'tls': True, 'skip-cert-verify': True}
+  - {'name': '🇺🇸 美国·洛杉矶(三网优化)', 'type': 'http', 'server': 'fan.596189.xyz', 'port': 443, 'tls': True, 'skip-cert-verify': True}
   - {'name': '🇺🇸 美国·圣何塞(三网优化)', 'type': 'http', 'server': 'fan.226278.xyz', 'port': 443, 'tls': True, 'skip-cert-verify': True}
   - {'name': '🇯🇵 日本·01', 'type': 'http', 'server': 'fan.587475.xyz', 'port': 443, 'tls': True, 'skip-cert-verify': True}
   - {'name': '🇯🇵 日本·02(联通优化)', 'type': 'http', 'server': 'fan.571589.xyz', 'port': 443, 'tls': True, 'skip-cert-verify': True}

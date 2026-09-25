@@ -1,7 +1,7 @@
 proxies:
 - name: 🇺🇸美国1
   type: vless
-  server: 137.175.82.40
+  server: 137.175.82.41
   port: 30556
   uuid: 949d278e-6d98-4014-84e9-59f1c6c93e0e
   network: tcp
@@ -21,7 +21,7 @@ proxies:
   sni: anytls.864106.xyz
 - name: 🇺🇸美国3
   type: mieru
-  server: 137.175.82.40
+  server: 137.175.82.41
   port: 28899
   transport: TCP
   username: fanvpn.net

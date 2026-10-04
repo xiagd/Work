@@ -6,11 +6,17 @@ proxies:
   password: github.com/Alvin9999-newpac/fanqiang
   sni: anytls2.864106.xyz
 - name: 🇺🇸美国2
-  type: anytls
-  server: anytls2.864106.xyz
-  port: 19000
-  password: github.com/Alvin9999-newpac/fanqiang
-  sni: anytls2.864106.xyz
+  type: hysteria
+  server: 198.200.57.142
+  port: 22335
+  auth-str: github.com/Alvin9999-newpac/fanqiang
+  sni: bing.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  protocol: udp
+  up: 11 Mbps
+  down: 55 Mbps
 - name: 🇺🇸美国3
   type: hysteria
   server: 198.200.57.142
@@ -24,18 +30,6 @@ proxies:
   up: 11 Mbps
   down: 55 Mbps
 - name: 🇺🇸美国4
-  type: hysteria
-  server: 198.200.57.142
-  port: 22335
-  auth-str: github.com/Alvin9999-newpac/fanqiang
-  sni: bing.com
-  skip-cert-verify: true
-  alpn:
-  - h3
-  protocol: udp
-  up: 11 Mbps
-  down: 55 Mbps
-- name: 🇺🇸美国5
   type: mieru
   server: 198.200.57.152
   port: 33556
@@ -44,7 +38,7 @@ proxies:
   password: github.com/Alvin9999-newpac/fanqiang
   udp: true
   multiplexing: MULTIPLEXING_LOW
-- name: 🇺🇸美国6
+- name: 🇺🇸美国5
   type: mieru
   server: 198.200.57.152
   port: 33556

@@ -496,7 +496,7 @@ def compare_files(file1, file2):
         print(f"文件1错误: {err1}")
         return 1
 
-    if size1 < 500 : # 文件太小 
+    if size1 < 150 : # 文件太小 
         print(f"文件太小: {size1}")
         return 1
     

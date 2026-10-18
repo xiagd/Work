@@ -111,21 +111,21 @@ proxy-groups:
   type: select
   proxies:
   - 自动选择
+  - 手动选择
+  - 自动回退
+  - 负载均衡
   - 自动选择_Go
   - 自动选择_Fan
-  - 自动回退
   - 自动回退_Go
   - 自动回退_Fan
-  - 手动选择
   - 手动选择_Go
   - 手动选择_Fan
-  - 负载均衡
   - 负载均衡_Go
   - 负载均衡_Fan
   - DIRECT
  
 
- #=======================================
+#=======================================
 - name: 自动选择
   type: url-test 
   url: http://www.gstatic.com/generate_204
@@ -151,7 +151,81 @@ proxy-groups:
     - Go
     - Fan
     - FanA
-  
+    
+#=======================================  
+- name: 手动选择
+  type: select
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  timeout:  2000 
+  tolerance: 100
+  lazy: true 
+  health-check:
+     enable: true
+     url: http://www.gstatic.com/generate_204
+     interval: 120          # 300s检查高优先级组是否恢复
+     tolerance: 100
+     timeout:  2000   # 超时xxx ms视为不可用
+     lazy: true             # true :检测当前被策略组使用的节点,  false:检测所有节点
+  #proxies:
+  #- ss1自建节点
+  #- vm+ws自建节点
+  use: 
+    - Go
+    - Fan
+    - FanA
+    
+#=======================================
+- name: 自动回退
+  type: fallback
+  url: http://www.gstatic.com/generate_204
+  interval: 300   #秒
+  tolerance: 100    #控制切换灵敏度ms
+  timeout:  2000 
+  lazy: true 
+  health-check:
+     enable: true
+     url: http://www.gstatic.com/generate_204
+     interval: 120          # x秒检查高优先级组是否恢复
+     tolerance: 100
+     timeout:  2000   # 超时x秒视为不可用
+     #expected-status: 204
+     max-failed-times: 3             # 连续失败3次标记节点不可用
+     lazy: true             # true :检测当前被策略组使用的节点,  false:检测所有节点
+  proxies:
+  #- ss1自建节点
+  #- vm+ws自建节点
+  use:
+    - Go
+    - Fan
+    - FanA
+    
+  #=======================================
+- name: 负载均衡
+  type: load-balance             # 必须指定类型
+  url: https://www.gstatic.com/generate_204  # 节点测试地址
+  interval: 300                  # 节点延迟测试间隔（单位：秒）
+  #strategy: round-robin          # 负载策略（轮询）
+  strategy: consistent-hashing      # 负载策略（一致性哈希，相同目标IP/域名固定使用同一节点）
+  timeout:  2000   #xxx ms
+  tolerance: 100
+  max-failed-times: 3             # 连续失败3次标记节点不可用
+  health-check:
+     enable: true
+     url: http://www.gstatic.com/generate_204
+     interval: 180          # *s检查高优先级组是否恢复
+     tolerance: 100
+     timeout:  2000   # 超时2秒视为不可用
+     max-failed-times: 3             # 连续失败3次标记节点不可用
+     lazy: true             # true :检测当前被策略组使用的节点,  false:检测所有节点
+  proxies:
+  #- ss1自建节点
+  #- vm+ws自建节点
+  use:
+    - Go
+    - Fan
+    - FanA
+    
  #=======================================
 - name: 自动选择_Go
   type: url-test 
@@ -196,32 +270,6 @@ proxy-groups:
   #- ss1自建节点
   #- vm+ws自建节点
   use:
-    - Fan
-    - FanA
-
-
-  #=======================================
-- name: 自动回退
-  type: fallback
-  url: http://www.gstatic.com/generate_204
-  interval: 300   #秒
-  tolerance: 100    #控制切换灵敏度ms
-  timeout:  2000 
-  lazy: true 
-  health-check:
-     enable: true
-     url: http://www.gstatic.com/generate_204
-     interval: 120          # x秒检查高优先级组是否恢复
-     tolerance: 100
-     timeout:  2000   # 超时x秒视为不可用
-     #expected-status: 204
-     max-failed-times: 3             # 连续失败3次标记节点不可用
-     lazy: true             # true :检测当前被策略组使用的节点,  false:检测所有节点
-  proxies:
-  #- ss1自建节点
-  #- vm+ws自建节点
-  use:
-    - Go
     - Fan
     - FanA
   
@@ -273,33 +321,6 @@ proxy-groups:
     - FanA
  
  #=======================================
-- name: 负载均衡
-  type: load-balance             # 必须指定类型
-  url: https://www.gstatic.com/generate_204  # 节点测试地址
-  interval: 300                  # 节点延迟测试间隔（单位：秒）
-  #strategy: round-robin          # 负载策略（轮询）
-  strategy: consistent-hashing      # 负载策略（一致性哈希，相同目标IP/域名固定使用同一节点）
-  timeout:  2000   #xxx ms
-  tolerance: 100
-  max-failed-times: 3             # 连续失败3次标记节点不可用
-  health-check:
-     enable: true
-     url: http://www.gstatic.com/generate_204
-     interval: 180          # *s检查高优先级组是否恢复
-     tolerance: 100
-     timeout:  2000   # 超时2秒视为不可用
-     max-failed-times: 3             # 连续失败3次标记节点不可用
-     lazy: true             # true :检测当前被策略组使用的节点,  false:检测所有节点
-  proxies:
-  #- ss1自建节点
-  #- vm+ws自建节点
-  use:
-    - Go
-    - Fan
-    - FanA
-    
-    
- #=======================================
 - name: 负载均衡_Go
   type: load-balance             # 必须指定类型
   url: https://www.gstatic.com/generate_204  # 节点测试地址
@@ -323,7 +344,6 @@ proxy-groups:
   use:
     - Go
 
-
  #=======================================
 - name: 负载均衡_Fan
   type: load-balance             # 必须指定类型
@@ -346,31 +366,6 @@ proxy-groups:
   #- ss1自建节点
   #- vm+ws自建节点
   use:
-    - Fan
-    - FanA
-
-
-
-#=======================================  
-- name: 手动选择
-  type: select
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  timeout:  2000 
-  tolerance: 100
-  lazy: true 
-  health-check:
-     enable: true
-     url: http://www.gstatic.com/generate_204
-     interval: 120          # 300s检查高优先级组是否恢复
-     tolerance: 100
-     timeout:  2000   # 超时xxx ms视为不可用
-     lazy: true             # true :检测当前被策略组使用的节点,  false:检测所有节点
-  #proxies:
-  #- ss1自建节点
-  #- vm+ws自建节点
-  use: 
-    - Go
     - Fan
     - FanA
     

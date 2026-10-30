@@ -1,7 +1,7 @@
 proxies:
 - name: 🇺🇸美国2
   type: hysteria2
-  server: 107.149.232.93
+  server: 107.149.232.92
   port: 443
   password: fanvpn.net
   sni: www.bing.com

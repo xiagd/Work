@@ -4,3 +4,4 @@ proxies:
   - {'name': '🇺🇸 美国·圣何塞(三网优化)', 'type': 'http', 'server': 'fan.226278.xyz', 'port': 443, 'tls': True, 'skip-cert-verify': True}
   - {'name': '🇯🇵 日本(联通优化)', 'type': 'http', 'server': 'fan.571589.xyz', 'port': 443, 'tls': True, 'skip-cert-verify': True}
   - {'name': '🇭🇰 香港(移动优化)', 'type': 'http', 'server': 'fan.240104.xyz', 'port': 443, 'tls': True, 'skip-cert-verify': True}
+  - {'name': '🇫🇷 法国·01(AI解锁)', 'type': 'http', 'server': 'fan.132031.xyz', 'port': 443, 'tls': True, 'skip-cert-verify': True}

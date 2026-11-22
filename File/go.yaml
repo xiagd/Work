@@ -48,47 +48,45 @@ proxies:
   up: 11 Mbps
   down: 55 Mbps
 - name: 🇺🇸美国5
-  type: mieru
-  server: 198.200.57.152
-  port: 33556
-  transport: TCP
-  username: Alvin9999-newpac
-  password: github.com/Alvin9999-newpac/fanqiang
+  type: hysteria2
+  server: 198.247.124.187
+  port: 23456
+  password: dongtaiwang.com
+  sni: www.bing.com
+  skip-cert-verify: true
+  alpn:
+  - h3
   udp: true
-  multiplexing: MULTIPLEXING_LOW
 - name: 🇺🇸美国6
-  type: mieru
-  server: 198.200.57.152
-  port: 33556
-  transport: TCP
-  username: Alvin9999-newpac
-  password: github.com/Alvin9999-newpac/fanqiang
+  type: hysteria2
+  server: 198.247.124.187
+  port: 23456
+  password: dongtaiwang.com
+  sni: www.bing.com
+  skip-cert-verify: true
+  alpn:
+  - h3
   udp: true
-  multiplexing: MULTIPLEXING_LOW
-- name: 🇨🇳台湾1
-  type: hysteria
-  server: tw-25.497489.xyz
-  port: 10099
-  auth-str: github.com/Alvin9999-newpac/fanqiang
-  sni: tw-25.497489.xyz
-  skip-cert-verify: false
+- name: 🇺🇸美国7
+  type: hysteria2
+  server: 198.247.124.187
+  port: 23456
+  password: dongtaiwang.com
+  sni: www.bing.com
+  skip-cert-verify: true
   alpn:
   - h3
-  protocol: udp
-  up: 20 Mbps
-  down: 20 Mbps
-- name: 🇨🇳台湾2
-  type: hysteria
-  server: tw-25.497489.xyz
-  port: 10099
-  auth-str: github.com/Alvin9999-newpac/fanqiang
-  sni: tw-25.497489.xyz
-  skip-cert-verify: false
+  udp: true
+- name: 🇺🇸美国8
+  type: hysteria2
+  server: 198.247.124.187
+  port: 23456
+  password: dongtaiwang.com
+  sni: www.bing.com
+  skip-cert-verify: true
   alpn:
   - h3
-  protocol: udp
-  up: 20 Mbps
-  down: 20 Mbps
+  udp: true
 - name: 🇫🇷法国1
   type: hysteria
   server: 62.210.124.132

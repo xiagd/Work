@@ -1,11 +1,13 @@
 proxies:
-- name: 🇺🇸美国2
+- name: 🇺🇸美国1
   type: hysteria2
   server: fanvpn.634570.xyz
-  port: 443
+  port: 34567
   password: fanvpn.net
-  sni: www.bing.com
-  skip-cert-verify: true
-  up: 5 Mbps
-  down: 5 Mbps
+  up: 5
+  down: 5
+  sni: fanvpn.634570.xyz
+  skip-cert-verify: false
+  alpn:
+  - h3
   udp: true
